@@ -40,3 +40,4 @@ x64/
 ##______
 *.filters
 *.vcxproj
+*.sln
