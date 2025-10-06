@@ -1,42 +1,64 @@
 ﻿#include <iostream>
 #include <string>
-#include <fstream>
 #include <Windows.h>
 
-class Address
+class Figure
 {
-private:
-    std::string city;
-    std::string street;
-    int house;
-    int apartment;
+protected:
+	
+	std::string Fig;
+	int sides_count;
 
 public:
-    Address(const std::string& c, const std::string& s, int h, int a)
-        : city(c), street(s), house(h), apartment(a) {
-    }
 
-    std::string get_output_address() const
-    {
-        return city + ", " + street + ", " + std::to_string(house) + ", " + std::to_string(apartment);
-    }
+	Figure(std::string figure, int sides) : Fig(figure), sides_count(sides) {}
+
+	void print_sides() const
+	{
+		std::cout << Fig << ": " << sides_count << std::endl;
+	}
+
 };
 
+class starting_point : public Figure
+{
+public:
+
+	starting_point() : Figure("Фигура", 0) {};
 
 
+};
+
+class Triangle : public Figure
+{
+public:
+	
+	Triangle() : Figure("Треугольник", 3) {};
+
+	
+};
+
+class Quadrangle : public Figure
+{
+public:
+
+	Quadrangle() : Figure("Четырёхугольник", 4) {};
+};
 
 
 int main()
 {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-   
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 
+	starting_point s_p;
+	Triangle tri;
+	Quadrangle qua;
 
+	std::cout << "Количество сторон:" << std::endl;
+	s_p.print_sides();
+	tri.print_sides();
+	qua.print_sides();
 
-
-
-
-
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }
