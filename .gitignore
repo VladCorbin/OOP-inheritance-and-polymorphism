@@ -37,3 +37,6 @@ x64/
 # Файлы с данными проекта
 *.vcxproj.filters
 *.vcxproj.user
+##______
+*.filters
+*.vcxproj
